@@ -21,24 +21,26 @@ export class TodoController {
   //add a todo
   @Post()
   // @UseGuards(AuthGuard('jwt'))
-  async addTodo(@Body() createTodoDTO: CreateTodoContract) {}
+  async addTodo(@Body() CreateTodoContract: CreateTodoContract) {
+    return this.todoService.addTodo(CreateTodoContract);
+  }
 
   //get all todos
   @Get()
   async getAllTodos(): Promise<ITodo[]> {
-    return null;
+    return this.todoService.getAllTodo();
   }
 
   //get a todo
   @Get(':id')
   async getTodoById(@Param('id') id): Promise<ITodo> {
-    return null;
+    return this.todoService.getTodoById(id);
   }
 
   //get a todo by category
   @Get('/category/:cat')
   async getTodoByCategory(@Param('cat') cat): Promise<ITodo[]> {
-    return null;
+    return this.todoService.getTodoByCategory(cat);
   }
 
   // update a todo
@@ -46,15 +48,15 @@ export class TodoController {
   @UseGuards(AuthGuard('jwt'))
   async updateTodo(
     @Param('id') id,
-    @Body() createTodoDTO: CreateTodoContract,
+    @Body() CreateTodoContract: CreateTodoContract,
   ): Promise<ITodo> {
-    return null;
+    return this.todoService.updateTodo(id, CreateTodoContract);
   }
 
   // delete a todo protected with JWT strategy
   @Delete(':id')
   @UseGuards(AuthGuard('jwt'))
   async deleteTodo(@Param('id') id): Promise<ITodo> {
-    return null;
+    return this.todoService.deleteTodo(id);
   }
 }
