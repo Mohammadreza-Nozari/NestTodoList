@@ -1,73 +1,71 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Todo List Nest js Application
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A brief description of your project.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Getting Started
 
-## Description
+1. Clone this project to your local machine:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+git clone  https://github.com/Mohammadreza-Nozari/NestTodoList/tree/develop
 
-## Installation
+2. Install project dependencies:
 
-```bash
-$ yarn install
-```
+cd your-project npm install
 
-## Running the app
+3. Configure your environment variables (if needed).
 
-```bash
-# development
-$ yarn run start
+4. Start the development server:
 
-# watch mode
-$ yarn run start:dev
+npm run start:dev
 
-# production mode
-$ yarn run start:prod
-```
+## Features
 
-## Test
+- Describe the key features of your project here.
 
-```bash
-# unit tests
-$ yarn run test
+## API Endpoints
 
-# e2e tests
-$ yarn run test:e2e
+- List the available API endpoints and their functionality.
 
-# test coverage
-$ yarn run test:cov
-```
+## Technologies Used
 
-## Support
+- List the technologies, frameworks, and libraries used in your project.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Contributing
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Contributions are welcome! Please follow the contribution guidelines.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+Feel free to customize this template according to your project's specifics. Add more sections, badges, and relevant information as needed. Good luck with your Nest.js project!
+
+---
+
+Certainly! Let’s complete the services. Here are the remaining parts for each service:
+
+##  Todo Service
+### Get a Todo by Category:
+You’ve already implemented the getTodoByCategory(cat: string): Promise<ITodo[]> method. This function retrieves todos based on their category. Make sure to test it with different categories to ensure it works as expected.
+### Add a Todo:
+You’ve implemented the addTodo(createTodoContract: CreateTodoContract): Promise<ITodo> method. This function adds a new todo. Remember to validate the input data (e.g., required fields, valid category, etc.) before saving it to the database.
+### Update a Todo:
+You’ve implemented the updateTodo(id: string, createTodoDTO: CreateTodoContract): Promise<ITodo> method. This function updates an existing todo. Ensure that you handle cases where the specified todo ID doesn’t exist.
+### Delete a Todo:
+You’ve implemented the deleteTodo(id: string): Promise<any> method. This function deletes a todo by its ID. Make sure to handle cases where the specified ID is invalid or the todo doesn’t exist.
+User Service
+### Create User:
+You’ve implemented the create(userDTO: IRegisterContract) method. This function creates a new user. Remember to hash the password before saving it to the database.
+### Find Users:
+You’ve implemented the find() method. This function retrieves all users. Consider adding pagination if your user list grows significantly.
+### Find User by Login:
+You’ve implemented the findByLogin(userDTO: ILoginContract) method. This function validates user credentials during login. Ensure proper error handling for invalid credentials.
+### Find User by Payload:
+You’ve implemented the findByPayload(payload: IPayload) method. This function retrieves a user based on the payload (usually from a JWT). Verify that it returns the correct user.
+### Auth Service
+### Sign Payload:
+You’ve implemented the signPayload(payload: IPayload) method. This function signs a payload (e.g., user ID) to create a JWT. Make sure to use a secure secret key and handle token expiration.
+Validate User:
+You’ve implemented the validateUser(payload: IPayload) method. This function validates a user based on the payload extracted from a JWT. Confirm that it correctly retrieves the user.
